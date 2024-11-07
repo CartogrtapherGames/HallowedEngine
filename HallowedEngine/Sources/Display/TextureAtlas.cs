@@ -5,12 +5,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Hallowed.Display.Struct;
+namespace Hallowed.Display;
 
+/// <summary>
+/// the class that handles a group of texture all bundled in one.
+/// </summary>
 public class TextureAtlas : IDisposable
 {
   
-
   public Texture2D Texture { get; set; }
   public static ContentManager Content { private get; set; } = null;
   
@@ -41,6 +43,7 @@ public class TextureAtlas : IDisposable
     return value;
   }
 
+  // to allow to manually set textureInfo
   public void Set(string key, Rectangle value)
   {
     _texturesDict[key] = value;
