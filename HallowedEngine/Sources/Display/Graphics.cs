@@ -1,4 +1,5 @@
 ﻿using Hallowed.Core;
+using Hallowed.Management;
 using Microsoft.Xna.Framework;
 
 namespace Hallowed.Display;
@@ -13,7 +14,7 @@ public static class Graphics
   private static Area2D _screenSize;
   private static bool _fullScreen;
 
-  public static void Init(SceneBase instance, int width = 1920, int height = 1080, bool fullScreen = false)
+  public static void Init(OldSceneBase instance, int width = 1920, int height = 1080, bool fullScreen = false)
   {
     _screenSize = new Area2D(width, height);
     _fullScreen = fullScreen; 
@@ -21,7 +22,7 @@ public static class Graphics
     OnScreenRefresh();
   }
 
-  public static void Init(SceneBase instance, GraphicsSystemOption option)
+  public static void Init(OldSceneBase instance, GraphicsSystemOption option)
   {
     _screenSize = new Area2D(option.Width, option.Height);
     _fullScreen = option.FullScreen;

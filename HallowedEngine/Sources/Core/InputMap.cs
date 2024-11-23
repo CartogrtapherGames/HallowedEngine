@@ -63,6 +63,8 @@ public class InputMap<T> where T : System.Enum
           }
           break;
         }
+        default:
+          throw new ArgumentOutOfRangeException();
       }
     }
     return false;

@@ -1,23 +1,49 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Hallowed.Display;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Hallowed.Display;
+namespace Hallowed.Management;
 
 /// <summary>
 /// the abstract class that offers a simple and easy workflow for your rendering.
 /// </summary>
-public abstract class SceneBase : Game
+public abstract class OldSceneBase : Game, IScene
 {
-  protected static SceneBase Instance = null;
+  protected static OldSceneBase Instance = null;
   protected readonly List<IRenderable> Children = [];
   protected SpriteBatch SpriteBatch;
 
-  protected SceneBase()
+  protected OldSceneBase()
   {
     Instance = this;
     // init the graphics;
+  }
+
+  public void Initialize()
+  {
+    throw new System.NotImplementedException();
+  }
+
+  void IScene.LoadContent()
+  {
+    LoadContent();
+  }
+
+  void IScene.Update(GameTime gameTime)
+  {
+    Update(gameTime);
+  }
+
+  void IScene.Draw(GameTime gameTime)
+  {
+    Draw(gameTime);
+  }
+
+  public void UnloadContent()
+  {
+    throw new System.NotImplementedException();
   }
 
   protected override void LoadContent()
@@ -53,6 +79,16 @@ public abstract class SceneBase : Game
     }
     Children.Clear(); // in this case we have disposed of all of them so we destroying all link
     base.Dispose(disposing);
+  }
+
+  public void Pause()
+  {
+    
+  }
+
+  public void Resume()
+  {
+    throw new System.NotImplementedException();
   }
 
   protected void AddChild(IRenderable child)

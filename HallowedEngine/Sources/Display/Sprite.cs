@@ -170,6 +170,7 @@ public class Sprite : IDisposable, IRenderable, IComponent
     return _color * Opacity;
   }
 
+  public GameComponent GameComponent { get; }
   public string Name { get; set; }
 
   /// <summary>
